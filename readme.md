@@ -1,7 +1,7 @@
 #GODSL
 _pronounced go diesel_
 
-###Made for model driven software development at SDU
+###Made for "Model Driven Software Development" at SDU
 
 **How To Run**
 
