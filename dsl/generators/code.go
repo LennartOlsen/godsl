@@ -27,9 +27,11 @@ type superclass struct {
 }
 
 func (c *superclass) toString() string {
-	str := "/**" + "\n" +
+	str := "package " + c.name  + "\n\n"
+
+	str += "/**" + "\n" +
 		" * " + c.name + " auto generated code to make your mind swiwel in joy" + "\n" +
-		"*/" + "\n"
+		"*/" + "\n\n"
 	for _, cls := range c.class {
 		str += cls.toString()
 	}
@@ -49,7 +51,7 @@ func (c *class) toString() string {
 	for _, attr := range c.attributes {
 		str += attr.toString()
 	}
-	str += "\n}\n"
+	str += "}\n\n"
 	return str
 }
 
