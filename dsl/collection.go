@@ -1,4 +1,4 @@
-package query
+package dsl
 
 import (
 	"reflect"
@@ -28,6 +28,7 @@ type ICollection interface {
 	Flush() ICollection
 	Append(string, ...V) ICollection
 	ToString() string
+	GetAllowed() []IEntity
 	setType(reflect.Type)
 	setName(string)
 }
@@ -62,7 +63,7 @@ func (c *Collection) Append(entName string, attributes...V) ICollection{
 	for _, e := range c.allowed {
 		if e.GetName() == entName {
 			instance := newEntity(entName);
-			for _, allowed := range e.getAllowed(){
+			for _, allowed := range e.GetAllowed(){
 				instance.Attribute(allowed.GetName());
 			}
 			for _,v := range attributes{
@@ -82,6 +83,10 @@ func (c *Collection) ToString() string {
 		rtn += e.ToString()
 	}
 	return rtn
+}
+
+func (c *Collection) GetAllowed() []IEntity {
+	return c.allowed
 }
 
 func (c *Collection) setType(typ reflect.Type) {

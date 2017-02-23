@@ -1,4 +1,4 @@
-package query
+package dsl
 
 import "reflect"
 
@@ -27,6 +27,7 @@ type IAttribute interface{
 	SetValue(interface{})
 	GetName() string
 	GetType() reflect.Type
+	GetPrimitiveType() string /* Primitive types for code generation */
 	ToString() string
 	setType( reflect.Type )
 	setName( string )
@@ -52,6 +53,10 @@ func (a *Attribute) GetName() string {
 
 func (a *Attribute) GetType() reflect.Type {
 	return a.typ
+}
+
+func (a *Attribute) GetPrimitiveType() string {
+	return "string";
 }
 
 func (a *Attribute) ToString() string {

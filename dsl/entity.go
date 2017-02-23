@@ -1,4 +1,4 @@
-package query
+package dsl
 
 import (
 	"reflect"
@@ -36,7 +36,7 @@ type IEntity interface {
 	parent(ICollection)
 	getParent() ICollection
 	setType(reflect.Type)
-	getAllowed() []IAttribute
+	GetAllowed() []IAttribute
 }
 
 type Ent struct {
@@ -89,6 +89,10 @@ func (e *Ent) ToString() string {
 	return rtn
 }
 
+func (e *Ent) GetAllowed() []IAttribute{
+	return e.allowed
+}
+
 func (e *Ent) parent(p ICollection) {
 	e.p = p
 }
@@ -103,8 +107,4 @@ func (e *Ent) setName(name string){
 
 func (e *Ent) setType(typ reflect.Type) {
 	e.typ = typ
-}
-
-func (e *Ent) getAllowed() []IAttribute{
-	return e.allowed
 }

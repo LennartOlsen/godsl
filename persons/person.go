@@ -1,6 +1,6 @@
 package persons
 
-import dsl "github.com/lennartolsen/godsl/query"
+import dsl "github.com/lennartolsen/godsl/dsl"
 
 type Person struct {
 	dsl.Ent

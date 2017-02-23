@@ -1,4 +1,4 @@
-package query
+package dsl
 
 type Comparable interface {}
 

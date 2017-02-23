@@ -1,7 +1,7 @@
 package classroom
 
 import (
-	dsl "github.com/lennartolsen/godsl/query"
+	"github.com/lennartolsen/godsl/dsl"
 	"strconv"
 )
 
@@ -13,6 +13,10 @@ func (a *String) ToString() string {
 	return a.GetName() + " " + a.Attribute.GetValue().(string)
 }
 
+func (a *String) GetPrimitiveType() string {
+	return "string";
+}
+
 
 type Integer64 struct {
 	dsl.Attribute
@@ -20,4 +24,8 @@ type Integer64 struct {
 
 func (a *Integer64) ToString() string {
 	return a.GetName() + " " + strconv.Itoa(a.GetValue().(int))
+}
+
+func (a *Integer64) GetPrimitiveType() string {
+	return "int64";
 }

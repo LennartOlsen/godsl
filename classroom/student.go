@@ -1,6 +1,6 @@
 package classroom
 
-import dsl "github.com/lennartolsen/godsl/query"
+import dsl "github.com/lennartolsen/godsl/dsl"
 
 type Student struct {
 	dsl.Ent

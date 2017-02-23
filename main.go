@@ -1,9 +1,10 @@
 package main
 
 import (
-	dsl "github.com/lennartolsen/godsl/query"
+	"github.com/lennartolsen/godsl/dsl"
 	"fmt"
 	"github.com/lennartolsen/godsl/classroom"
+	"github.com/lennartolsen/godsl/dsl/generators"
 )
 
 func main() {
@@ -26,6 +27,8 @@ func main() {
 					Attribute("age").
 		Flush()
 
+	generators.Code(classroom)
+
 	classroom.
 		Append("teacher",
 			dsl.V{"name", "lennart"},
@@ -37,9 +40,4 @@ func main() {
 	str := classroom.ToString()
 
 	fmt.Println(str)
-}
-
-type val struct {
-	name string
-	value interface{}
 }
