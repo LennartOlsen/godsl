@@ -1,9 +1,5 @@
 package main
-/**
- *
- * NOTES : https://blog.gopheracademy.com/advent-2016/go-syntax-for-dsls/
- *
- */
+
 import (
 	dsl "github.com/lennartolsen/godsl/query"
 	"fmt"
@@ -31,12 +27,12 @@ func main() {
 		Flush()
 
 	classroom.
-	Append("teacher",
-		dsl.V{"name", "lennart"},
-		dsl.V{"age", 17},
-		dsl.V{"grade", 4}).
-	Append("student",
-		dsl.V{"name", "lennart"})
+		Append("teacher",
+			dsl.V{"name", "lennart"},
+			dsl.V{"age", 17},
+			dsl.V{"grade", 4}).
+		Append("student",
+			dsl.V{"name", "lennart"})
 
 	str := classroom.ToString()
 
